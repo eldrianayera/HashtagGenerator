@@ -28,6 +28,7 @@ input {
   border-radius: 10px;
   animation: rgb 5s infinite;
   border: 2px solid white;
+  color: white;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
