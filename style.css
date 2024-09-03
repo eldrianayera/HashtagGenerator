@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle, #cf3cbc, #7c0a77, #680d5d);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: rgb(255, 230, 230);
+}
+
+hr {
+  margin: 10px;
+}
+
+button,
+input {
+  padding: 10px;
+  width: 50vw;
+  max-width: 500px;
+  border-radius: 10px;
+  animation: rgb 5s infinite;
+  border: 2px solid white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  animation: flash 1s infinite;
+}
+
+@keyframes rgb {
+  0% {
+    background-color: #0033ff; /* Bright Blue */
+  }
+  33% {
+    background-color: #3399ff; /* Light Blue */
+  }
+  66% {
+    background-color: #66ccff; /* Very Light Blue */
+  }
+  100% {
+    background-color: #0033ff; /* Bright Blue again */
+  }
+}
+
+@keyframes flash {
+  50% {
+    background-color: black;
+    color: white;
+  }
+  100% {
+    background-color: white;
+    color: black;
+  }
+}
