@@ -3,11 +3,10 @@ const output = document.getElementById("output");
 const button = document.getElementById("button");
 
 const hashtagGenerator = () => {
-  const string = input.value;
-  if (typeof string !== "string") {
-    return "Input a string";
+  let string = input.value;
+  if (string.charAt(0) == "#") {
+    string = string.slice(1);
   }
-
   const separated = string.split(" ");
 
   const capitalizedWords = separated.map(
