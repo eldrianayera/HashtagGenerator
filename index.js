@@ -16,27 +16,29 @@ const hashtagGenerator = (string) => {
   }
 
   const separated = string.split(" ");
-  let array = [];
-  // separated.forEach((word) => word.charAt(0).toUpperCase);
-  for (const word of separated) {
-    const capWord = word.charAt(0).toUpperCase() + word.slice(1);
-    array.push(capWord);
-  }
+  // let array = [];
+  // for (const word of separated) {
+  //   const capWord = word.charAt(0).toUpperCase() + word.slice(1);
+  //   array.push(capWord);
+  // }
+  const capitalizedWords = separated.map(
+    (word) => word.charAt(0).toUpperCase() + word.slice(1)
+  );
+  const joined = capitalizedWords.join("");
+
   const regex = /\s+/g;
-  console.log(array);
+  const clearInput = joined.replace(regex, "");
+  if (clearInput.length === 0) {
+    return false;
+  }
 
-  // const clearInput = separated.replace(regex, "");
-  // const capitalized = clearInput.charAt(0).toUpperCase() + clearInput.slice(1);
+  const hashtag = "#" + clearInput;
 
-  // if (clearInput.length === 0) {
-  //   return false;
-  // }
-
-  // const hashtag = "#" + capitalized;
-  // if (hashtag.length > 140) {
-  //   return false;
-  // }
-  // return hashtag;
+  if (hashtag.length > 140) {
+    return false;
+  } else {
+    return hashtag;
+  }
 };
 
 console.log(hashtagGenerator("JavaScript")); // #JavaScript
@@ -45,5 +47,5 @@ console.log(hashtagGenerator("    Hello     World   ")); // #HelloWorld
 console.log(hashtagGenerator("coding" + " ".repeat(140) + "for life")); // #CodingForLife
 console.log(hashtagGenerator("")); // false
 console.log(hashtagGenerator(" ")); // false
-console.log(hashtagGenerator("a".repeat(140))); // false
+console.log(hashtagGenerator("a".repeat(144))); // false
 console.log(hashtagGenerator(" ".repeat(200))); // false
